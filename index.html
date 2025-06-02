@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <body>
+    <button onclick='throw new OopsieError("oopsie");'>Experience my pain making this website (use Inspect)</button>
     <h1>Heading!!!</h1>
     <p>Text!!!</p>
     <p id='numishere'>0</p>
@@ -8,6 +9,12 @@
     <button onclick='inc();'>Increment idk what to call it</button>
     <button onclick='incn(0,-1);'>Increment</button>
     <script>
+      class OopsieError extends Error {
+        constructor(message) {
+          super(message);
+          this.name="OopsieError";
+        }
+      }
       let a=[[1]];
       let y=-1;
       function inc() {
