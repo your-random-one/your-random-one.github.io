@@ -16,7 +16,7 @@
         n++;
         let n2=n;
         newbutton.innerText='Increment'+' Incrementing'.repeat(n);
-        newbutton.onclick=()=>incn(n2);
+        newbutton.onclick=(()=>incn(n2));
         document.body.insertBefore(newbutton,document.getElementById('script'));
       }
       function incn(x) {
