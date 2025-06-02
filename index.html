@@ -12,6 +12,7 @@
       let n=0;
       function inc() {
         let newbutton=document.createElement('button');
+        a=a.push(1);
         n++;
         newbutton.innerText='Increment'+' Incrementing'.repeat(n);
         newbutton.onclick='inc('+n.toString()+')';
