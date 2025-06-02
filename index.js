@@ -1,4 +1,4 @@
 function inc() {
   k=document.querySelectorAll('input');
-  k.value+=1;
+  k.value=k.value+1;
 }
