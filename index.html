@@ -4,11 +4,22 @@
     <h1>Heading!!!</h1>
     <p>Text!!!</p>
     <p id='numishere'>0</p>
+    <h2>Layers!!!</h2>
     <button onclick='inc()'>Increment</button>
+    <button onclick='inc2()'>Increment Incrementing</button>
+    <button onclick='inc3()'>Increment Incrementing Incrementing</button>
     <script>
+      let x=1;
+      let y=1;
       function inc() {
         let n=document.getElementById('numishere');
-        n.innerText=parseInt(n.innerText)+1;
+        n.innerText=parseInt(n.innerText)+x;
+      }
+      function inc2() {
+        x+=y;
+      }
+      function inc3() {
+        y++;
       }
     </script>
   </body>
