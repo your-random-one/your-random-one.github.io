@@ -16,7 +16,7 @@
         }
       }
       let a=[[1]];
-      let y=-1;
+      let y=0;
       function inc() {
         let newbutton=document.createElement('button');
         a.push([1]);
@@ -36,7 +36,7 @@
         } else if (n==-1) {
           for(let i=0;i<a[m][0];i++){
             let newbutton=document.createElement('button');
-            newbutton.innerText='Increment'+' Incrementor'.repeat(m)+' Incrementing'.repeat(n+1);
+            newbutton.innerText='Increment'+' Incrementor'.repeat(m)+' Incrementing'.repeat(a[m-1].length);
             let m2=m-1;
             let alen=a[m-1].length;
             newbutton.onclick=(()=>incn(m2,alen));
