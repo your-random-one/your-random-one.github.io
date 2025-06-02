@@ -8,7 +8,7 @@
     <button onclick='inc();'>Increment Incrementors</button>
     <button onclick='incn(-1);'>Increment</button>
     <script>
-      let a=[1];
+      let a=[1,1];
       let n=0;
       function inc() {
         let newbutton=document.createElement('button');
@@ -25,7 +25,6 @@
           numisthere.innerText=parseInt(numishere.innerText)+a[0];
         } else {
           a[x]+=a[x+1];
-          alert(a);
         }
       }
     </script>
