@@ -38,11 +38,13 @@
             let newbutton=document.createElement('button');
             newbutton.innerText='Increment'+' Incrementor'.repeat(m)+' Incrementing'.repeat(a[m-1].length);
             let m2=m-1;
-            let alen=a[m-1].length;
+            let alen=a[m-1].length-1;
             newbutton.onclick=(()=>incn(m2,alen));
             a[m-1].push(1);
             document.body.insertBefore(newbutton,document.getElementById(m.toString()));
           }
+        } else {
+          a[m][n]++;
         }
       }
     </script>
