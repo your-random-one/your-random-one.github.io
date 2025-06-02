@@ -29,7 +29,7 @@
         document.body.appendChild(newbr);
         document.body.appendChild(document.createElement('br'));
         document.body.appendChild(newbutton);
-        navigator.vibrate([1000])
+        navigator.vibrate([10,100,10,200,100])
       }
       function incn(m,n) {
         if (m==0&&n==-1) {
@@ -48,7 +48,7 @@
         } else {
           a[m][n]++;
         }
-        navigator.vibrate(...Array(m+1).fill([500,500]).concat(...Array(n+2).fill([250,250])));
+        navigator.vibrate(...Array(m).fill([100,100]).concat(...Array(n+2).fill([25,25])));
       }
     </script>
   </body>
