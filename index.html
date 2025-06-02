@@ -5,26 +5,36 @@
     <p>Text!!!</p>
     <p id='numishere'>0</p>
     <h2>Layers!!!</h2>
-    <button onclick='inc();'>Increment Incrementors</button>
-    <button onclick='incn(-1);'>Increment</button>
+    <button onclick='inc();'>Increment idk what to call it</button>
+    <button onclick='incn(-1,-1);'>Increment</button>
     <script>
-      let a=[1];
-      let n=-1;
+      let a=[[1]];
+      let y=-1;
       function inc() {
         let newbutton=document.createElement('button');
-        a.push(1);
-        n++;
-        let n2=n;
-        newbutton.innerText='Increment'+' Incrementing'.repeat(n+1);
-        newbutton.onclick=(()=>incn(n2));
+        a.push([1]);
+        y++;
+        let y2=y;
+        newbutton.innerText='Increment'+' Incrementor'.repeat(y+1);
+        newbutton.onclick=(()=>incn(y2,-1));
+        newbr=document.createElement('br');
+        newbr.id=y;
+        document.body.appendChild(newbr);
         document.body.appendChild(newbutton);
       }
-      function incn(x) {
-        if (x==-1) {
+      function incn(m,n) {
+        if (m==0&&n==-1) {
           numisthere=document.getElementById('numishere');
           numisthere.innerText=parseInt(numishere.innerText)+a[0];
-        } else {
-          a[x]+=a[x+1];
+        } else if (n==-1) {
+          for(let i=0,i<a[m][0],i++){
+            let newbutton=document.createElement('button');
+            newbutton.innerText='Increment'+' Incrementor'.repeat(m)+' Incrementing'.repeat(n+1);
+            let m2=m-1;
+            let alen=a[m-1].length;
+            newbutton.onclick=(()=>incn(m2,alen));
+            document.insertBefore(newbutton,document.getElementById(m));
+          }
         }
       }
     </script>
