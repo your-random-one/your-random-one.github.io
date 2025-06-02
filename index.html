@@ -22,11 +22,12 @@
         a.push([1]);
         y++;
         let y2=y;
-        newbutton.innerText='Increment'+' Incrementor'.repeat(y+1);
+        newbutton.innerText='Increment'+' Incrementor'.repeat(y);
         newbutton.onclick=(()=>incn(y2,-1));
         newbr=document.createElement('br');
         newbr.id=y.toString();
         document.body.appendChild(newbr);
+        document.body.appendChild(document.createElement('br'));
         document.body.appendChild(newbutton);
       }
       function incn(m,n) {
@@ -36,7 +37,7 @@
         } else if (n==-1) {
           for(let i=0;i<a[m][0];i++){
             let newbutton=document.createElement('button');
-            newbutton.innerText='Increment'+' Incrementor'.repeat(m)+' Incrementing'.repeat(a[m-1].length);
+            newbutton.innerText='Increment'+' Incrementor'.repeat(m-1)+' Incrementing'.repeat(a[m-1].length);
             let m2=m-1;
             let alen=a[m-1].length-1;
             newbutton.onclick=(()=>incn(m2,alen));
