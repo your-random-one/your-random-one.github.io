@@ -5,21 +5,25 @@
     <p>Text!!!</p>
     <p id='numishere'>0</p>
     <h2>Layers!!!</h2>
-    <button onclick='inc()'>Increment</button>
-    <button onclick='inc2()'>Increment Incrementing</button>
-    <button onclick='inc3()'>Increment Incrementing Incrementing</button>
+    <button onclick='inc();'>Increment Incrementors</button>
+    <button onclick='incn(-1);'>Increment</button>
     <script>
-      let x=1;
-      let y=1;
+      let a=[1];
+      let n=0;
       function inc() {
-        let n=document.getElementById('numishere');
-        n.innerText=parseInt(n.innerText)+x;
+        let newbutton=document.createElement('button');
+        n++;
+        newbutton.innerText='Increment'+' Incrementing'.repeat(n);
+        newbutton.onclick='inc('+n.toString()+')';
+        document.body.appendChild(newbutton);
       }
-      function inc2() {
-        x+=y;
-      }
-      function inc3() {
-        y++;
+      function incn(x) {
+        if (x==-1) {
+          numisthere=document.getElementById('numishere');
+          numisthere.innerText=parseInt(numishere.innerText)+a[0];
+        } else {
+          a[x]++;
+        }
       }
     </script>
   </body>
