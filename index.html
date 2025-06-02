@@ -3,7 +3,13 @@
   <body>
     <h1>Heading!!!</h1>
     <p>Text!!!</p>
-    <script src='index.js'/>
-    <input type='button' value='0' onclick='inc();'/>
+    <p id='numishere'>0</p>
+    <button onclick='inc()'>Increment</button>
+    <script>
+      function inc() {
+        n=getElementById('numishere');
+        n.innerText++;
+      }
+    </script>
   </body>
 </html>
