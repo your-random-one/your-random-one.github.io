@@ -18,22 +18,23 @@
         newbutton.innerText='Increment'+' Incrementor'.repeat(y+1);
         newbutton.onclick=(()=>incn(y2,-1));
         newbr=document.createElement('br');
-        newbr.id=y;
+        newbr.id=y.toString();
         document.body.appendChild(newbr);
         document.body.appendChild(newbutton);
       }
       function incn(m,n) {
         if (m==0&&n==-1) {
           numisthere=document.getElementById('numishere');
-          numisthere.innerText=parseInt(numishere.innerText)+a[0];
+          numisthere.innerText=parseInt(numishere.innerText)+a[0][0];
         } else if (n==-1) {
-          for(let i=0,i<a[m][0],i++){
+          for(let i=0;i<a[m][0];i++){
             let newbutton=document.createElement('button');
             newbutton.innerText='Increment'+' Incrementor'.repeat(m)+' Incrementing'.repeat(n+1);
             let m2=m-1;
             let alen=a[m-1].length;
             newbutton.onclick=(()=>incn(m2,alen));
-            document.insertBefore(newbutton,document.getElementById(m));
+            a[m-1].push(1);
+            document.body.insertBefore(newbutton,document.getElementById(m.toString()));
           }
         }
       }
