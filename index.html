@@ -48,7 +48,7 @@
         } else {
           a[m][n]++;
         }
-        navigator.vibrate(...Array(m).fill([100,100]).concat(...Array(n+2).fill([25,25])));
+        navigator.vibrate([m*100+25]);
       }
     </script>
   </body>
