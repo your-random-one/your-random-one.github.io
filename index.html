@@ -80,7 +80,7 @@
       function incn(m,n) {
         if (m==0&&n==-1) {
           let numisthere=document.getElementById('numishere');
-          numisthere.innerText=BigInt(numishere.innerText+a[0][0]);
+          numisthere.innerText=BigInt(numishere.innerText)+a[0][0];
         } else if (n==-1) {
           for(let i=0;i<a[m][0];i++){
             let newbutton=document.createElement('button');
