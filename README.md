@@ -3,5 +3,6 @@ Features:
 - Haptics
 - Squishy buttons
 - Custom Error?
+
 Please leave feedback!
 I would appreciate it
