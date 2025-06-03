@@ -68,7 +68,7 @@
         let y2=y;
         newbutton.innerText='Increment'+' Incrementor'.repeat(y)+'s';
         newbutton.onclick=(()=>incn(y2,-1));
-        newbr=document.createElement('br');
+        let newbr=document.createElement('br');
         newbr.id=y.toString();
         document.body.appendChild(newbr);
         document.body.appendChild(document.createElement('br'));
@@ -79,8 +79,8 @@
       }
       function incn(m,n) {
         if (m==0&&n==-1) {
-          numisthere=document.getElementById('numishere');
-          numisthere.innerText=BigInt(parseInt(numishere.innerText)+a[0][0]);
+          let numisthere=document.getElementById('numishere');
+          numisthere.innerText=BigInt(numishere.innerText+a[0][0]);
         } else if (n==-1) {
           for(let i=0;i<a[m][0];i++){
             let newbutton=document.createElement('button');
@@ -118,7 +118,7 @@
           let newbutton=document.createElement('button');
         newbutton.innerText='Increment'+' Incrementor'.repeat(i)+'s';
         newbutton.onclick=(()=>incn(y2,-1));
-        newbr=document.createElement('br');
+        let newbr=document.createElement('br');
         newbr.id=i.toString();
         document.body.appendChild(newbr);
         document.body.appendChild(document.createElement('br'));
