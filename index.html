@@ -24,6 +24,20 @@
       button:active {
         transform: scale(0.9);
       }
+      @keyframes spawnIn {
+        0% {
+          transform:scale(0)
+        }
+        66% {
+          transform:scale(1.2);
+        }
+        100% {
+          transform:scale(1);
+        }
+      }
+      .spawning {
+        transition:spawnIn 1s ease;
+      }
     </style>
     <button onclick='throw new OopsieError("oopsie");'>Experience my pain making this website (use Inspect)</button>
     <h1>Heading!!!</h1>
@@ -48,6 +62,7 @@
         let y2=y;
         newbutton.innerText='Increment'+' Incrementor'.repeat(y)+'s';
         newbutton.onclick=(()=>incn(y2,-1));
+        newbutton.classList.add('spawning');
         newbr=document.createElement('br');
         newbr.id=y.toString();
         document.body.appendChild(newbr);
