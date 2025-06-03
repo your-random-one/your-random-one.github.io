@@ -139,10 +139,10 @@
         navigator.vibrate([1000]);
       }
       function exportGame() {
-        document.getElementById('exp').innerText=LZString.compressToEncodedURIComponent(localStorage.getItem("curSave"));
+        document.getElementById('exp').innerText=localStorage.getItem("curSave");
       }
       function importGame() {
-        localStorage.setItem("curSave",LZString.decompressFromEncodedURIComponent(prompt("Save file","")));
+        localStorage.setItem("curSave",prompt("Save file",""));
       }
     </script>
   </body>
