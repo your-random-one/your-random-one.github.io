@@ -100,9 +100,9 @@
       }
       function saveGame() {
         let saveData = {
-          a:a,
+          a:a.toString(),
           y:y,
-          number:document.getElementById('numishere').innerText
+          number:document.getElementById('numishere').innerText.toString()
         };
         localStorage.setItem("curSave",pako.deflate(JSON.stringify(saveData),{to:'string'}));
         alert("Saved");
