@@ -100,7 +100,7 @@
       }
       function saveGame() {
         let saveData = {
-          a:a.toString(),
+          a:a.map(arr => arr.map(b => b.toString())),
           y:y,
           number:document.getElementById('numishere').innerText.toString()
         };
@@ -110,7 +110,7 @@
       function loadGame() {
         let raw=pako.inflate(localStorage.getItem("curSave"),{to:'string'});
         let saveData=JSON.parse(raw);
-        a=BigInt(saveData.a);
+        a=saveData.a.map(arr => arr.map(s => BigInt(s)));
         y=saveData.y;
         document.getElementById('numishere').innerText=BigInt(saveData.number);
         for(let i=1;i<=y;i++) {
