@@ -39,11 +39,12 @@
         animation:spawnIn 1000ms ease;
       }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
     <button onclick='throw new OopsieError("oopsie");'>Experience my pain making this website (use Inspect)</button>
     <h2>Data</h2>
     <button onclick='saveGame();'>Save</button>
     <button onclick='loadGame();'>Load</button>
-    <button onclick='exportGame();'>Export</button>
+    <button id='exp' onclick='exportGame();'>Export</button>
     <button onclick='importGame();'>Import</button>
     <h1>Heading!!!</h1>
     <p>Text!!!</p>
@@ -103,11 +104,11 @@
           y:y,
           number:document.getElementById('numishere').innerText
         };
-        localStorage.setItem("curSave",JSON.stringify(saveData));
+        localStorage.setItem("curSave",LZString.compressToEncodedURIComponent(JSON.stringify(saveData)));
         alert("Saved");
       }
       function loadGame() {
-        let raw=localStorage.getItem("curSave");
+        let raw=LZString.decompressFromEncodedURIComponent(localStorage.getItem("curSave"));
         let saveData=JSON.parse(raw);
         a=saveData.a;
         y=saveData.y;
@@ -138,11 +139,10 @@
         navigator.vibrate([1000]);
       }
       function exportGame() {
-        alert("Copy this");
-        alert(localStorage.getItem("curSave"));
+        document.getElementById('exp').innerText=LZString.compressToEncodedURIComponent(localStorage.getItem("curSave"));
       }
       function importGame() {
-        localStorage.setItem("curSave",prompt("Save file",""));
+        localStorage.setItem("curSave",LZString.decompressFromEncodedURIComponent(prompt("Save file","")));
       }
     </script>
   </body>
