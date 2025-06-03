@@ -142,7 +142,8 @@
         document.getElementById('exp').innerText=btoa(String.fromCharCode(...pako.deflate(localStorage.getItem("curSave"))));
       }
       function importGame() {
-        localStorage.setItem("curSave",pako.inflate(Uint8Arry.from(atob(prompt("Save file","")),c => c.charCodeAt(0)),{to:'string'}));
+        let inputSave=prompt("Save file","");
+        localStorage.setItem("curSave",pako.inflate(Uint8Arry.from(atob(inputSave),c => c.charCodeAt(0)),{to:'string'}));
       }
     </script>
   </body>
