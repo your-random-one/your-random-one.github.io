@@ -104,11 +104,11 @@
           y:y,
           number:document.getElementById('numishere').innerText.toString()
         };
-        localStorage.setItem("curSave",btoa(pako.deflate(JSON.stringify(saveData),{to:'string'})));
+        localStorage.setItem("curSave",JSON.stringify(saveData));
         alert("Saved");
       }
       function loadGame() {
-        let raw=pako.inflate(atob(localStorage.getItem("curSave")),{to:'string'});
+        let raw=localStorage.getItem("curSave");
         let saveData=JSON.parse(raw);
         a=saveData.a.map(arr => arr.map(s => BigInt(s)));
         y=saveData.y;
@@ -139,10 +139,10 @@
         navigator.vibrate([1000]);
       }
       function exportGame() {
-        document.getElementById('exp').innerText=localStorage.getItem("curSave");
+        document.getElementById('exp').innerText=pako.deflate(localStorage.getItem("curSave"));
       }
       function importGame() {
-        localStorage.setItem("curSave",prompt("Save file",""));
+        localStorage.setItem("curSave",pako.inflate(prompt("Save file","")));
       }
     </script>
   </body>
