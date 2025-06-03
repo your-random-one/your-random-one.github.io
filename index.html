@@ -103,7 +103,7 @@
         localStorage.setItem("curSave",JSON.stringify(saveData));
         alert("Saved");
       }
-      function loadGame {
+      function loadGame() {
         let raw=localStorage.getItem("curSave");
         let saveData=JSON.parse(raw);
         a=saveData.a;
