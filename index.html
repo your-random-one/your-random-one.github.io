@@ -39,7 +39,7 @@
         animation:spawnIn 1000ms ease;
       }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
     <button onclick='throw new OopsieError("oopsie");'>Experience my pain making this website (use Inspect)</button>
     <h2>Data</h2>
     <button onclick='saveGame();'>Save</button>
@@ -104,11 +104,11 @@
           y:y,
           number:document.getElementById('numishere').innerText
         };
-        localStorage.setItem("curSave",LZString.compressToEncodedURIComponent(JSON.stringify(saveData)));
+        localStorage.setItem("curSave",pako.deflate(JSON.stringify(saveData),{to:'string'}));
         alert("Saved");
       }
       function loadGame() {
-        let raw=LZString.decompressFromEncodedURIComponent(localStorage.getItem("curSave"));
+        let raw=pako.inflate(localStorage.getItem("curSave")),{to:'string'});
         let saveData=JSON.parse(raw);
         a=saveData.a;
         y=saveData.y;
