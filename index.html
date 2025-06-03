@@ -90,7 +90,7 @@
             newbutton.classList.add("spawning");
           }
         } else {
-          a[m][n]++;
+          a[m][n]+=a[m][n-1];
         }
         navigator.vibrate([m*100+25]);
       }
