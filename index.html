@@ -139,10 +139,10 @@
         navigator.vibrate([1000]);
       }
       function exportGame() {
-        document.getElementById('exp').innerText=pako.deflate(localStorage.getItem("curSave"));
+        document.getElementById('exp').innerText=btoa(String.fromCharCode(...pako.deflate(localStorage.getItem("curSave"))));
       }
       function importGame() {
-        localStorage.setItem("curSave",pako.inflate(prompt("Save file","")));
+        localStorage.setItem("curSave",pako.inflate(Uint8Arry.from(atob(prompt("Save file","")),c => c.charCodeAt(0))));
       }
     </script>
   </body>
