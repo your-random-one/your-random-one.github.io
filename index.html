@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html>
   <body>
+    <style>
+      body {
+        background-color:#000000;
+        color:#fff;
+        text-align:center;
+      }
+      p {
+        font-size:1.2em;
+      }
+      button {
+        padding:10px 10px;
+        background-color:#ffffff;
+        color:#000;
+        cursor:pointer;
+        transition:transform 0.5s ease;
+      }
+      button:hover {
+        transform: scale(1.1);
+      }
+      button:active {
+        transform: scale(0.9);
+      }
+    </style>
     <button onclick='throw new OopsieError("oopsie");'>Experience my pain making this website (use Inspect)</button>
     <h1>Heading!!!</h1>
     <p>Text!!!</p>
