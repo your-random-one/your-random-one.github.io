@@ -102,7 +102,7 @@
         let saveData = {
           a:a,
           y:y,
-          number:document.getElementById('numishere').innerText;
+          number:document.getElementById('numishere').innerText
         };
         localStorage.setItem("curSave",LZString.compressToEncodedURIComponent(JSON.stringify(saveData)));
         alert("Saved");
@@ -112,7 +112,7 @@
         let saveData=JSON.parse(raw);
         a=saveData.a;
         y=saveData.y;
-        document.getElementById('numishere').innerText=saveData.number
+        document.getElementById('numishere').innerText=saveData.number;
         for(let i=1;i<=y;i++) {
           let y2=i;
           let newbutton=document.createElement('button');
