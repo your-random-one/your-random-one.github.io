@@ -62,12 +62,12 @@
         let y2=y;
         newbutton.innerText='Increment'+' Incrementor'.repeat(y)+'s';
         newbutton.onclick=(()=>incn(y2,-1));
-        newbutton.classList.add("spawning");
         newbr=document.createElement('br');
         newbr.id=y.toString();
         document.body.appendChild(newbr);
         document.body.appendChild(document.createElement('br'));
         document.body.appendChild(newbutton);
+        newbutton.classList.add("spawning");
         navigator.vibrate([10,100,10,200,100])
       }
       function incn(m,n) {
@@ -81,9 +81,9 @@
             let m2=m-1;
             let alen=a[m-1].length-1;
             newbutton.onclick=(()=>incn(m2,alen));
-            newbutton.classList.add("spawning");
             a[m-1].push(1);
             document.body.insertBefore(newbutton,document.getElementById(m.toString()));
+            newbutton.classList.add("spawning");
           }
         } else {
           a[m][n]++;
