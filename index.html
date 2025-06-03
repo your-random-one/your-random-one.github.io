@@ -67,7 +67,8 @@
         document.body.appendChild(newbr);
         document.body.appendChild(document.createElement('br'));
         document.body.appendChild(newbutton);
-        requestAnimationFrame(()=>{newbutton.classList.add("spawning")});
+        newbutton.offsetWidth;
+        newbutton.classList.add("spawning");
         navigator.vibrate([10,100,10,200,100])
       }
       function incn(m,n) {
@@ -83,7 +84,8 @@
             newbutton.onclick=(()=>incn(m2,alen));
             a[m-1].push(1);
             document.body.insertBefore(newbutton,document.getElementById(m.toString()));
-            requestAnimationFrame(()=>{newbutton.classList.add("spawning")});
+            newbutton.offsetWidth;
+            newbutton.classList.add("spawning");
           }
         } else {
           a[m][n]++;
