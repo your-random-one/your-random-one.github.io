@@ -110,9 +110,9 @@
       function loadGame() {
         let raw=pako.inflate(localStorage.getItem("curSave"),{to:'string'});
         let saveData=JSON.parse(raw);
-        a=saveData.a;
+        a=BigInt(saveData.a);
         y=saveData.y;
-        document.getElementById('numishere').innerText=saveData.number;
+        document.getElementById('numishere').innerText=BigInt(saveData.number);
         for(let i=1;i<=y;i++) {
           let y2=i;
           let newbutton=document.createElement('button');
