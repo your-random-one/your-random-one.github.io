@@ -108,7 +108,7 @@
         alert("Saved");
       }
       function loadGame() {
-        let raw=pako.inflate(localStorage.getItem("curSave")),{to:'string'});
+        let raw=pako.inflate(localStorage.getItem("curSave"),{to:'string'});
         let saveData=JSON.parse(raw);
         a=saveData.a;
         y=saveData.y;
