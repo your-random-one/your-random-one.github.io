@@ -59,11 +59,11 @@
           this.name="OopsieError";
         }
       }
-      let a=[[1]];
+      let a=[[1n]];
       let y=0;
       function inc() {
         let newbutton=document.createElement('button');
-        a.push([1]);
+        a.push([1n]);
         y++;
         let y2=y;
         newbutton.innerText='Increment'+' Incrementor'.repeat(y)+'s';
@@ -80,7 +80,7 @@
       function incn(m,n) {
         if (m==0&&n==-1) {
           numisthere=document.getElementById('numishere');
-          numisthere.innerText=parseInt(numishere.innerText)+a[0][0];
+          numisthere.innerText=BigInt(parseInt(numishere.innerText)+a[0][0]);
         } else if (n==-1) {
           for(let i=0;i<a[m][0];i++){
             let newbutton=document.createElement('button');
@@ -88,7 +88,7 @@
             let m2=m-1;
             let alen=a[m-1].length-1;
             newbutton.onclick=(()=>incn(m2,alen));
-            a[m-1].push(1);
+            a[m-1].push(1n);
             document.body.insertBefore(newbutton,document.getElementById(m.toString()));
             newbutton.offsetWidth;
             newbutton.classList.add("spawning");
