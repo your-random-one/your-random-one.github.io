@@ -1,4 +1,4 @@
-<h1>Squishy Button Simulator</h1>
+# Squishy Button Simulator
 
 Press **squishy** buttons to raise a number!
 Features:
@@ -9,3 +9,4 @@ Features:
 
 Please leave feedback!
 I would appreciate it
+![Favicon of the GitHub Page](https://your-random-one.github.io/favicon.png)
