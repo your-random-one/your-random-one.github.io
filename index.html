@@ -159,7 +159,8 @@
         alert("Refresh the page to load your import!");
         let reader=new FileReader();
         reader.onload=function (f) {
-          localStorage.setItem("curSave",JSON.parse(pako.inflate(new Uint8Array(f.target.result),{to:"string"})));
+          let array=new Uint8Array(f.target.result);
+          localStorage.setItem("curSave",JSON.parse(pako.inflate(array,{to:"string"})));
         }
         reader.readAsArrayBuffer(file);
       }
