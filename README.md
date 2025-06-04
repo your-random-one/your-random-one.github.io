@@ -1,7 +1,10 @@
-Press buttons to raise a number!
+<h1>Squishy Button Simulator</h1>
+
+Press **squishy** buttons to raise a number!
 Features:
 - Haptics
-- Squishy buttons
+- Saving
+- Export/Import
 - Custom Error?
 
 Please leave feedback!
