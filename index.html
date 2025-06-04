@@ -5,6 +5,7 @@
     <title>Squishy Button Simulator</title>
   </head>
   <body>
+    <input type='file' id='inputFile' onchange='importGame();' style='display:none;'>
     <style>
       body {
         background-color:#000000;
@@ -49,7 +50,7 @@
     <button onclick='saveGame();'>Save</button>
     <button id='load' onclick='loadGame();'>Load</button>
     <button id='exp' onclick='exportGame();'>Export</button>
-    <button id='imp' onclick='importGame();'>Import</button>
+    <button id='imp' onclick='document.getElementById("fileInput").click();'>Import</button>
     <h1>Heading!!!</h1>
     <p>Text!!!</p>
     <p id='numishere'>0</p>
@@ -145,12 +146,22 @@
         loadB.remove();
       }
       function exportGame() {
-        navigator.clipboard.writeText(btoa(String.fromCharCode(...pako.deflate(localStorage.getItem("curSave")))));
+        let fileA=document.createElement(a);
+        let blob=Blob([pako.deflate(localStorage.getItem("curSave"))],{type:"application/octet-stream"});
+        fileA.href=URL.createObjectURL(blob);
+        fileA.download="squish-buttons.qsf";
+        fileA.click();
+        URL.revokeObjectURL(fileA.href);
       }
       function importGame() {
-        document.getElementById('imp').innerText='Refresh the page to load the import!';
-        let inputSave=prompt("Input your save file:","");
-        localStorage.setItem("curSave",pako.inflate(Uint8Arry.from(atob(inputSave),c => c.charCodeAt(0)),{to:'string'}));
+        let file=document.getElementById('inputFile').files[0];
+        if (!file){return;}
+        alert("Refresh the page to load your import!");
+        let reader=new FileReader();
+        reader.onload=function (f) {
+          localStorage.setItem("curSave",JSON.parse(pako.inflate(new Uint8Array(f.target.result),{to:"string"})));
+        }
+        reader.readAsArrayBuffer(file);
       }
     </script>
   </body>
