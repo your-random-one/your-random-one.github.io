@@ -149,6 +149,7 @@
       function importGame() {
         let inputSave=prompt("Save file","");
         localStorage.setItem("curSave",pako.inflate(Uint8Arry.from(atob(inputSave),c => c.charCodeAt(0)),{to:'string'}));
+        console.log("import");
         alert("Refresh page to load import");
       }
     </script>
