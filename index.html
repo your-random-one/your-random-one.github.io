@@ -50,6 +50,7 @@
     <button onclick='saveGame();'>Save</button>
     <button id='exp' onclick='exportGame();'>Export</button>
     <button id='imp' onclick="document.getElementById('inputFile').click();">Import</button>
+    <button onclick='reset();' style='background-color:red;color:white;'>RESET</button>
     <h1>Heading!!!</h1>
     <p>Text!!!</p>
     <p id='numishere'>0</p>
@@ -63,8 +64,6 @@
           this.name="OopsieError";
         }
       }
-      let a=[[1n]];
-      let y=0;
       function inc() {
         let newbutton=document.createElement('button');
         a.push([1n]);
@@ -114,8 +113,8 @@
       function loadGame() {
         let raw=localStorage.getItem("curSave");
         let saveData=JSON.parse(raw);
-        a=saveData.a.map(arr => arr.map(s => BigInt(s)));
-        y=saveData.y;
+        let a=saveData.a.map(arr => arr.map(s => BigInt(s)));
+        let y=saveData.y;
         document.getElementById('numishere').innerText=BigInt(saveData.number);
         for(let i=1;i<=y;i++) {
           let y2=i;
@@ -163,7 +162,14 @@
         } catch(err) {
           alert("Error; Invalid Save?");
         }
+      function reset() {
+        for(i=0;i<y;i++) {
+          if(!confirm("ARE YOU SURE YOU WANT TO RESET YOUR PROGRESS?")){return;}
+        }
+        localStorage.clear();
+        location.reload();
       }
+      if (!localStorage.getItem("cursave")){let a=[[1n]];let y=0;saveGame();}
       loadGame();
     </script>
   </body>
