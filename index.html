@@ -48,7 +48,6 @@
     <button onclick='throw new OopsieError("oopsie");'>Experience my pain making this website (use Inspect)</button>
     <h2>Data</h2>
     <button onclick='saveGame();'>Save</button>
-    <button id='load' onclick='loadGame();'>Load</button>
     <button id='exp' onclick='exportGame();'>Export</button>
     <button id='imp' onclick="document.getElementById('inputFile').click();">Import</button>
     <h1>Heading!!!</h1>
@@ -155,15 +154,21 @@
       }
       function importGame() {
         let file=document.getElementById('inputFile').files[0];
-        if (!file){return;}
+        if (!file||!file.name.endsWith('.qsf')){alert("Please input a valid .qsf file.");return;}
         alert("Refresh the page to load your import!");
         let reader=new FileReader();
         reader.onload=function (f) {
           let array=new Uint8Array(f.target.result);
           localStorage.setItem("curSave",JSON.parse(pako.inflate(array,{to:"string"})));
         }
+        try {
         reader.readAsArrayBuffer(file);
+        } catch(err) {
+          alert("Error; Invalid Save?")
+        }
+        }
       }
+      loadGame();
     </script>
   </body>
 </html>
