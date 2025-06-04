@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel='icon' type='image/png' href='favicon.png'>
-    <title>Squishy Button "Incremental"</title>
+    <title>Squishy Button Simulator</title>
   </head>
   <body>
     <style>
@@ -109,7 +109,7 @@
           number:document.getElementById('numishere').innerText.toString()
         };
         localStorage.setItem("curSave",JSON.stringify(saveData));
-        alert("Saved");
+        alert("Saved!");
       }
       function loadGame() {
         let raw=localStorage.getItem("curSave");
@@ -148,8 +148,8 @@
         navigator.clipboard.writeText(btoa(String.fromCharCode(...pako.deflate(localStorage.getItem("curSave")))));
       }
       function importGame() {
-        document.getElementById('imp').innerText='Refresh the page to load the import';
-        let inputSave=prompt("Save file","");
+        document.getElementById('imp').innerText='Refresh the page to load the import!';
+        let inputSave=prompt("Input your save file:","");
         localStorage.setItem("curSave",pako.inflate(Uint8Arry.from(atob(inputSave),c => c.charCodeAt(0)),{to:'string'}));
       }
     </script>
