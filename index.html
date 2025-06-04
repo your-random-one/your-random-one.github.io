@@ -48,7 +48,7 @@
     <button onclick='saveGame();'>Save</button>
     <button id='load' onclick='loadGame();'>Load</button>
     <button id='exp' onclick='exportGame();'>Export</button>
-    <button onclick='importGame();'>Import</button>
+    <button id='imp' onclick='importGame();'>Import</button>
     <h1>Heading!!!</h1>
     <p>Text!!!</p>
     <p id='numishere'>0</p>
@@ -149,8 +149,7 @@
       function importGame() {
         let inputSave=prompt("Save file","");
         localStorage.setItem("curSave",pako.inflate(Uint8Arry.from(atob(inputSave),c => c.charCodeAt(0)),{to:'string'}));
-        console.log("import");
-        alert("Refresh page to load import");
+        document.getElementById('imp').innerText='Refresh page to load the import';
       }
     </script>
   </body>
