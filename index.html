@@ -140,7 +140,8 @@
           }
         }
         navigator.vibrate([1000]);
-        document.getElementById('load').remove;
+        let loadB=document.getElementById('load');
+        loadB.remove();
       }
       function exportGame() {
         navigator.clipboard.writeText(btoa(String.fromCharCode(...pako.deflate(localStorage.getItem("curSave")))));
