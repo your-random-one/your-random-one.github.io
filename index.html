@@ -139,7 +139,7 @@
         navigator.vibrate([1000]);
       }
       function exportGame() {
-        document.getElementById('exp').innerText=btoa(String.fromCharCode(...pako.deflate(localStorage.getItem("curSave"))));
+        navigator.clipboard.writeText(document.getElementById('exp').innerText=btoa(String.fromCharCode(...pako.deflate(localStorage.getItem("curSave")))));
       }
       function importGame() {
         let inputSave=prompt("Save file","");
