@@ -50,7 +50,7 @@
     <button onclick='saveGame();'>Save</button>
     <button id='load' onclick='loadGame();'>Load</button>
     <button id='exp' onclick='exportGame();'>Export</button>
-    <button id='imp' onclick='document.getElementById("fileInput").click();'>Import</button>
+    <button id='imp' onclick="document.getElementById('fileInput').click();">Import</button>
     <h1>Heading!!!</h1>
     <p>Text!!!</p>
     <p id='numishere'>0</p>
@@ -147,7 +147,7 @@
       }
       function exportGame() {
         let fileA=document.createElement('a');
-        let blob=Blob([pako.deflate(localStorage.getItem("curSave"))],{type:"application/octet-stream"});
+        let blob=new Blob([pako.deflate(localStorage.getItem("curSave"))],{type:"application/octet-stream"});
         fileA.href=URL.createObjectURL(blob);
         fileA.download="squish-buttons.qsf";
         fileA.click();
