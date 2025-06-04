@@ -146,7 +146,7 @@
         loadB.remove();
       }
       function exportGame() {
-        let fileA=document.createElement(a);
+        let fileA=document.createElement('a');
         let blob=Blob([pako.deflate(localStorage.getItem("curSave"))],{type:"application/octet-stream"});
         fileA.href=URL.createObjectURL(blob);
         fileA.download="squish-buttons.qsf";
