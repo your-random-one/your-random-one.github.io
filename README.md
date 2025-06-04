@@ -8,5 +8,5 @@ Features:
 - Custom Error?
 
 Please leave feedback!
-I would appreciate it
-![Favicon of the GitHub Page](https://your-random-one.github.io/favicon.png)
+I would appreciate it  
+![Favicon of the your-random-one GitHub Page](https://your-random-one.github.io/favicon.png)
