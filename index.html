@@ -46,7 +46,7 @@
     <button onclick='throw new OopsieError("oopsie");'>Experience my pain making this website (use Inspect)</button>
     <h2>Data</h2>
     <button onclick='saveGame();'>Save</button>
-    <button onclick='loadGame();'>Load</button>
+    <button id='load' onclick='loadGame();'>Load</button>
     <button id='exp' onclick='exportGame();'>Export</button>
     <button onclick='importGame();'>Import</button>
     <h1>Heading!!!</h1>
@@ -140,6 +140,7 @@
           }
         }
         navigator.vibrate([1000]);
+        document.getElementById('load').remove;
       }
       function exportGame() {
         navigator.clipboard.writeText(btoa(String.fromCharCode(...pako.deflate(localStorage.getItem("curSave")))));
