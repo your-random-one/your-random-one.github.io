@@ -147,7 +147,7 @@
       }
       function exportGame() {
         let fileA=document.createElement('a');
-        let blob=new Blob([pako.deflate(JSON.stringify(localStorage.getItem("curSave")))],{type:"application/octet-stream"});
+        let blob=new Blob([pako.deflate(localStorage.getItem("curSave"))],{type:"application/octet-stream"});
         fileA.href=URL.createObjectURL(blob);
         fileA.download="squish-buttons.qsf";
         fileA.click();
@@ -160,7 +160,7 @@
         let reader=new FileReader();
         reader.onload=function (f) {
           let array=new Uint8Array(f.target.result);
-          localStorage.setItem("curSave",JSON.parse(pako.inflate(array,{to:"string"})));
+          localStorage.setItem("curSave",pako.inflate(array,{to:"string"}));
         }
         try {
         reader.readAsArrayBuffer(file);
