@@ -58,6 +58,8 @@
     <button onclick='inc();'>Increment idk what to call it</button>
     <button onclick='incn(0,-1);'>Increment</button>
     <script>
+      let a=[[1n]];
+      let y=0;
       class OopsieError extends Error {
         constructor(message) {
           super(message);
@@ -113,8 +115,8 @@
       function loadGame() {
         let raw=localStorage.getItem("curSave");
         let saveData=JSON.parse(raw);
-        let a=saveData.a.map(arr => arr.map(s => BigInt(s)));
-        let y=saveData.y;
+        a=saveData.a.map(arr => arr.map(s => BigInt(s)));
+        y=saveData.y;
         document.getElementById('numishere').innerText=BigInt(saveData.number);
         for(let i=1;i<=y;i++) {
           let y2=i;
@@ -162,6 +164,7 @@
         } catch(err) {
           alert("Error; Invalid Save?");
         }
+      }
       function reset() {
         for(i=0;i<y;i++) {
           if(!confirm("ARE YOU SURE YOU WANT TO RESET YOUR PROGRESS?")){return;}
@@ -169,7 +172,7 @@
         localStorage.clear();
         location.reload();
       }
-      if (!localStorage.getItem("cursave")){let a=[[1n]];let y=0;saveGame();}
+      if (!localStorage.getItem("curSave")){saveGame();}
       loadGame();
     </script>
   </body>
