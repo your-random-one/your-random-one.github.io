@@ -147,9 +147,9 @@
         navigator.clipboard.writeText(btoa(String.fromCharCode(...pako.deflate(localStorage.getItem("curSave")))));
       }
       function importGame() {
+        document.getElementById('imp').innerText='Refresh the page to load the import';
         let inputSave=prompt("Save file","");
         localStorage.setItem("curSave",pako.inflate(Uint8Arry.from(atob(inputSave),c => c.charCodeAt(0)),{to:'string'}));
-        document.getElementById('imp').innerText='Refresh page to load the import';
       }
     </script>
   </body>
