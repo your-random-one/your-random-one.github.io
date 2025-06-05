@@ -173,7 +173,6 @@
           if(!confirm("ARE YOU SURE YOU WANT TO RESET YOUR PROGRESS?")){return;}
         }
         localStorage.clear();
-        location.reload();
       }
       if (!localStorage.getItem("curSave")){saveGame();}
       loadGame();
