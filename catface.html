@@ -1,89 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+    <title>:3 :3 :3</title>
     <link rel='icon' type='image/png' href='favicon.png'>
-    <title>Squishy Button Game</title>
   </head>
   <body>
-    <input type='file' id='inputFile' onchange='importGame();' style='display:none;'>
-    <style>
-      body {
-        font-family:'Fredoka',sans-serif;
-        background-color:#000000;
-        color:#fff;
-        text-align:center;
-      }
-      p {
-        font-size:1.2em;
-      }
-      button {
-        font-family:'Fredoka',sans-serif;
-        border-radius:20px;
-        padding:10px 10px;
-        background-color:#ffffff;
-        color:#000;
-        cursor:pointer;
-        transition:transform 0.5s ease;
-      }
-      button:hover {
-        transform: scale(1.1);
-      }
-      button:active {
-        transform: scale(0.9);
-      }
-      @keyframes spawnIn {
-        0% {
-          transform:scale(0);
-        }
-        66% {
-          transform:scale(1.2);
-        }
-        100% {
-          transform:scale(1);
-        }
-      }
-      .spawning {
-        animation:spawnIn 1000ms ease;
-      }
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
-    <button onclick='throw new OopsieError("oopsie");'>Experience my pain making this website (use Inspect)</button>
-    <h2>Data</h2>
-    <button onclick='saveGame();'>Save</button>
-    <button id='exp' onclick='exportGame();'>Export</button>
-    <button id='imp' onclick="document.getElementById('inputFile').click();">Import</button>
-    <button onclick='reset();' style='background-color:red;color:white;'>RESET</button>
-    <h1>Squishy Button Game</h1>
-    <button id='cutie' onclick='hapi();'>:3</button>
+    <button onclick='saveGame();'>OwO</button>
+    <h1>:3 :3 :3</h1>
     <p id='numishere'>0</p>
-    <h2>Your buttons!</h2>
-    <button onclick='inc();'>Increment Layer</button>
-    <button onclick='incn(0,-1);'>Increment</button>
+    <button onclick='inc();'><3</button>
+    <button onclick='incn(0,-1);'>:3</button>
     <script>
       let a=[[1n]];
       let y=0;
-      class OopsieError extends Error {
-        constructor(message) {
-          super(message);
-          this.name="OopsieError";
-        }
-      }
       function inc() {
         let newbutton=document.createElement('button');
         a.push([1n]);
         y++;
         let y2=y;
-        newbutton.innerText='Increment'+' Incrementor'.repeat(y)+'s';
+        newbutton.innerText=':D '.repeat(y)+':3';
         newbutton.onclick=(()=>incn(y2,-1));
         let newbr=document.createElement('br');
         newbr.id=y.toString();
         document.body.appendChild(newbr);
         document.body.appendChild(document.createElement('br'));
         document.body.appendChild(newbutton);
-        newbutton.offsetWidth;
-        newbutton.classList.add("spawning");
-        navigator.vibrate([10,100,10,200,100]);
       }
       function incn(m,n) {
         if (m==0&&n==-1) {
@@ -92,22 +33,16 @@
         } else if (n==-1) {
           for(let i=0n;i<a[m][0];i++){
             let newbutton=document.createElement('button');
-            newbutton.innerText='Increment'+' Incrementor'.repeat(m-1)+' Incrementing'.repeat(a[m-1].length);
+            newbutton.innerText=':D '.repeat(m-1)+':) '.repeat(a[m-1].length)+':3';
             let m2=m-1;
             let alen=a[m-1].length-1;
             newbutton.onclick=(()=>incn(m2,alen));
             a[m-1].push(1n);
             document.body.insertBefore(newbutton,document.getElementById(m.toString()));
-            newbutton.offsetWidth;
-            newbutton.classList.add("spawning");
           }
         } else {
           a[m][n]+=a[m][n+1];
         }
-        navigator.vibrate([m*100+25]);
-        curiosity++;
-        let clicked=event.target;
-        if(curiosity==6) {cutie.innerText=':o';setTimeout(()=>{clicked.click();cutie.innerText=':3';},1000);curiosity=0;}
       }
       function saveGame() {
         let saveData = {
@@ -115,11 +50,11 @@
           y:y,
           number:document.getElementById('numishere').innerText.toString()
         };
-        localStorage.setItem("curSave",JSON.stringify(saveData));
+        localStorage.setItem("catface",JSON.stringify(saveData));
         alert("Saved!");
       }
       function loadGame() {
-        let raw=localStorage.getItem("curSave");
+        let raw=localStorage.getItem("catface");
         let saveData=JSON.parse(raw);
         a=saveData.a.map(arr => arr.map(s => BigInt(s)));
         y=saveData.y;
@@ -127,70 +62,25 @@
         for(let i=1;i<=y;i++) {
           let y2=i;
           let newbutton=document.createElement('button');
-        newbutton.innerText='Increment'+' Incrementor'.repeat(i)+'s';
+        newbutton.innerText=':D '.repeat(i)+':3';
         newbutton.onclick=(()=>incn(y2,-1));
         let newbr=document.createElement('br');
         newbr.id=i.toString();
         document.body.appendChild(newbr);
         document.body.appendChild(document.createElement('br'));
         document.body.appendChild(newbutton);
-        newbutton.offsetWidth;
-        newbutton.classList.add("spawning");
           for(let j=0;j<=a[i-1].length-2;j++) {
             let newbutton=document.createElement('button');
-            newbutton.innerText='Increment'+' Incrementor'.repeat(i-1)+' Incrementing'.repeat(j+1);
+            newbutton.innerText=':D '.repeat(i-1)+':) '.repeat(j+1)+':3';
             let x=i-1;
             let y=j;
             newbutton.onclick=(()=>incn(x,y));
             document.body.insertBefore(newbutton,document.getElementById(i.toString()));
-            newbutton.offsetWidth;
-            newbutton.classList.add("spawning");
           }
         }
       }
-      function exportGame() {
-        let fileA=document.createElement('a');
-        let blob=new Blob([pako.deflate(localStorage.getItem("curSave"))],{type:"application/octet-stream"});
-        fileA.href=URL.createObjectURL(blob);
-        fileA.download="squish-buttons.qsf";
-        fileA.click();
-        URL.revokeObjectURL(fileA.href);
-      }
-      function importGame() {
-        let file=document.getElementById('inputFile').files[0];
-        if (!file||!file.name.endsWith('.qsf')){alert("Please input a valid .qsf file.");return;}
-        let reader=new FileReader();
-        reader.onload=function (f) {
-          let array=new Uint8Array(f.target.result);
-          localStorage.setItem("curSave",pako.inflate(array,{to:"string"}));
-        }
-        try {
-        reader.readAsArrayBuffer(file);
-          location.reload();
-        } catch(err) {
-          alert("Error; Invalid Save?");
-        }
-      }
-      function reset() {
-        for(i=0;i<y;i++) {
-          if(!confirm("ARE YOU SURE YOU WANT TO RESET YOUR PROGRESS?")){return;}
-        }
-        localStorage.clear();
-      }
-      function hapi() {
-        let cutie=document.getElementById('cutie');
-        cutie.innerText=':D'
-        happys+=30;
-        setTimeout(()=>{cutie.innerText=':3'},2000);
-      }
       if (!localStorage.getItem("curSave")){saveGame();}
       loadGame();
-      let cutie=document.getElementById('cutie');
-      let happys=6;
-      let curiosity=0;
-      let numba=document.getElementById('numishere');
-      setInterval(()=>{happys--;if(happys=0){cutie.innerText=':(';}},1000);
-      setInterval(()=>{cutie.innerText=':s';setTimeout(()=>{numba.innerText=(BigInt(numba.innerText)-1n).toString();cutie.innerText=':3';},5000)},20000);
     </script>
   </body>
 </html>
