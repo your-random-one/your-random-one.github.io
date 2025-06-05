@@ -115,7 +115,7 @@
           mischief=0;
           mischiefDur=10;
             let i1=Math.floor(Math.random()*a.length);
-            let misch=setInterval(()=>{incn(i1,Math.floor(Math.random()*(a[i1].length+1))-1);mischiefDur--;mischiefDur==0?clearInterval(misch):},1000);
+            let misch=setInterval(()=>{incn(i1,Math.floor(Math.random()*(a[i1].length+1))-1);mischiefDur--;if(mischiefDur==0){clearInterval(misch);}},1000);
           setTimeout(()=>{buttons.forEach(function(b){b.disabled=false;});cutie.innerText=':3';},10000);
         }
         if(curiosity==10) {cutie.innerText=':o';setTimeout(()=>{clicked.click();cutie.innerText=':3';},1000);mischief++;curiosity=-1;}
