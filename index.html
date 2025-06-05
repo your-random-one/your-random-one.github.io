@@ -3,7 +3,7 @@
   <head>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
     <link rel='icon' type='image/png' href='favicon.png'>
-    <title>Squishy Button Simulator</title>
+    <title>Squishy Button Game</title>
   </head>
   <body>
     <input type='file' id='inputFile' onchange='importGame();' style='display:none;'>
@@ -54,11 +54,11 @@
     <button id='exp' onclick='exportGame();'>Export</button>
     <button id='imp' onclick="document.getElementById('inputFile').click();">Import</button>
     <button onclick='reset();' style='background-color:red;color:white;'>RESET</button>
-    <h1>Squishy Button Simulator</h1>
+    <h1>Squishy Button Game</h1>
     <button>:3</button>
     <p id='numishere'>0</p>
     <h2>Your buttons!</h2>
-    <button onclick='inc();'>Increment idk what to call it</button>
+    <button onclick='inc();'>Increment Layer</button>
     <button onclick='incn(0,-1);'>Increment</button>
     <script>
       let a=[[1n]];
