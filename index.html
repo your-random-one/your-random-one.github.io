@@ -107,7 +107,7 @@
         navigator.vibrate([m*100+25]);
         curiosity++;
         let clicked=event.target;
-        if(curiosity==6) {cutie.innerText=':o';setTimeout(()=>{clicked.click();cutie.innerText=':3';},1000);curiosity=0;}
+        if(curiosity==10) {cutie.innerText=':o';setTimeout(()=>{clicked.click();cutie.innerText=':3';},1000);curiosity=-1;}
       }
       function saveGame() {
         let saveData = {
