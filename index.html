@@ -113,10 +113,9 @@
           buttons.forEach(function(b){b.disabled=true;});
           curiosity=-10;
           mischief=0;
-          for(let i=1;i<10;i++) {
+          mischiefDur=10;
             let i1=Math.floor(Math.random()*a.length);
-            setTimeout(()=>{incn(i1,Math.floor(Math.random()*(a[i1].length+1))-1);},1000);
-          }
+            let misch=setInterval(()=>{incn(i1,Math.floor(Math.random()*(a[i1].length+1))-1);mischiefDur--;mischiefDur==0?clearInterval(misch):},1000);
           setTimeout(()=>{buttons.forEach(function(b){b.disabled=false;});cutie.innerText=':3';},10000);
         }
         if(curiosity==10) {cutie.innerText=':o';setTimeout(()=>{clicked.click();cutie.innerText=':3';},1000);mischief++;curiosity=-1;}
@@ -203,6 +202,7 @@
       let happys=6;
       let curiosity=0;
       let mischief=0;
+      let mischiefDur=0;
       let numba=document.getElementById('numishere');
       setInterval(()=>{happys--;if(happys==0){cutie.innerText=':(';}},1000);
       setInterval(()=>{cutie.innerText=':s';setTimeout(()=>{numba.innerText=(BigInt(numba.innerText)-1n).toString();cutie.innerText=':3';},5000)},20000);
