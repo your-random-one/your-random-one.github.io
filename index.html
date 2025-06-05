@@ -55,7 +55,7 @@
     <button id='imp' onclick="document.getElementById('inputFile').click();">Import</button>
     <button onclick='reset();' style='background-color:red;color:white;'>RESET</button>
     <h1>Squishy Button Game</h1>
-    <button>:3</button>
+    <button id='cutie' onclick='hapi();'>:3</button>
     <p id='numishere'>0</p>
     <h2>Your buttons!</h2>
     <button onclick='inc();'>Increment Layer</button>
@@ -105,6 +105,8 @@
           a[m][n]+=a[m][n+1];
         }
         navigator.vibrate([m*100+25]);
+        curiosity++;
+        if(curiosity==6) {cutie.innerText=':o';event.target.click();setTimeout(()=>{cutie.innerText=':3'},1000);}
       }
       function saveGame() {
         let saveData = {
@@ -174,8 +176,20 @@
         }
         localStorage.clear();
       }
+      function hapi() {
+        let cutie=document.getElementById('cutie');
+        cutie.innerText=':D'
+        clearInterval(sadTimer);
+        sadTimer=setInterval(()=>{cutie.innerText=':(';},8000);
+        setTimeout(()=>{cutie.innerText=':3';},2000);
+      }
       if (!localStorage.getItem("curSave")){saveGame();}
       loadGame();
+      let cutie=document.getElementById('cutie');
+      let curiosity=0;
+      let numba=document.getElementById('numishere');
+      const sadTimer=setInterval(()=>{cutie.innerText=':(';},6000);
+      setInterval(()=>{cutie.innerText=':s';setTimeout(()=>{numba.innerText=(BigInt(numba.innerText)-1n).toString();cutie.innerText=':3';},5000)},10000);
     </script>
   </body>
 </html>
