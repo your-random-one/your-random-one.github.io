@@ -107,7 +107,19 @@
         navigator.vibrate([m*100+25]);
         curiosity++;
         let clicked=event.target;
-        if(curiosity==10) {cutie.innerText=':o';setTimeout(()=>{clicked.click();cutie.innerText=':3';},1000);curiosity=-1;}
+        if(curiosity==10) {cutie.innerText=':o';setTimeout(()=>{clicked.click();cutie.innerText=':3';},1000);mischief++;curiosity=-1;}
+        if(mischief==5) {
+          cutie.innerText='>:3';
+          let buttons=document.querySelectorAll('button');
+          buttons.forEach(function(b){buttons.disabled=true;});
+          curiosity=-10;
+          mischief=0;
+          for(i=1;i<10;i++) {
+            let i1=Math.random(0,a.length-1);
+            setTimeout(()=>{incn(i1,Math.random(-1,a[i1].length-1));},1000);
+          }
+          buttons.forEach(function(b){buttons.disabled=false;});
+        }
       }
       function saveGame() {
         let saveData = {
@@ -190,6 +202,7 @@
       let cutie=document.getElementById('cutie');
       let happys=6;
       let curiosity=0;
+      let mischief=0;
       let numba=document.getElementById('numishere');
       setInterval(()=>{happys--;if(happys==0){cutie.innerText=':(';}},1000);
       setInterval(()=>{cutie.innerText=':s';setTimeout(()=>{numba.innerText=(BigInt(numba.innerText)-1n).toString();cutie.innerText=':3';},5000)},20000);
