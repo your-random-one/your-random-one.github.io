@@ -1,4 +1,4 @@
-# Squishy Button Simulator
+# Squishy Button Game
 
 Press **squishy** buttons to raise a number!
 Features:
