@@ -114,10 +114,10 @@
           curiosity=-10;
           mischief=0;
           for(let i=1;i<10;i++) {
-            let i1=Math.random(0,a.length-1);
-            setTimeout(()=>{incn(i1,Math.random(-1,a[i1].length-1));},1000);
+            let i1=Math.floor(Math.random()*a.length);
+            setTimeout(()=>{incn(i1,Math.floor(Math.random()*a[i1].length);},1000);
           }
-          buttons.forEach(function(b){b.disabled=false;});
+          setTimeout(()=>{buttons.forEach(function(b){b.disabled=false;};cutie.innerText=':3';},10000);
         }
         if(curiosity==10) {cutie.innerText=':o';setTimeout(()=>{clicked.click();cutie.innerText=':3';},1000);mischief++;curiosity=-1;}
       }
