@@ -180,16 +180,16 @@
       function hapi() {
         let cutie=document.getElementById('cutie');
         cutie.innerText=':D'
-        clearInterval(sadTimer);
-        setTimeout(()=>{cutie.innerText=':3';},2000);
-        sadTimer=setInterval(()=>{cutie.innerText=':(';},30000);
+        happys=20;
+        setTimeout(()=>{cutie.innerText=':3'},2000);
       }
       if (!localStorage.getItem("curSave")){saveGame();}
       loadGame();
       let cutie=document.getElementById('cutie');
+      let happys=6;
       let curiosity=0;
       let numba=document.getElementById('numishere');
-      const sadTimer=setInterval(()=>{cutie.innerText=':(';},6000);
+      setInterval(()=>{happys--;},1000);
       setInterval(()=>{cutie.innerText=':s';setTimeout(()=>{numba.innerText=(BigInt(numba.innerText)-1n).toString();cutie.innerText=':3';},5000)},20000);
     </script>
   </body>
