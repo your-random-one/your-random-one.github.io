@@ -117,7 +117,7 @@
             let i1=Math.floor(Math.random()*a.length);
             setTimeout(()=>{incn(i1,Math.floor(Math.random()*a[i1].length));},1000);
           }
-          setTimeout(()=>{buttons.forEach(function(b){b.disabled=false;};cutie.innerText=':3';},10000);
+          setTimeout(()=>{buttons.forEach(function(b){b.disabled=false;});cutie.innerText=':3';},10000);
         }
         if(curiosity==10) {cutie.innerText=':o';setTimeout(()=>{clicked.click();cutie.innerText=':3';},1000);mischief++;curiosity=-1;}
       }
@@ -186,7 +186,7 @@
         }
       }
       function reset() {
-        for(i=0;i<y;i++) {
+        for(let i=0;i<y;i++) {
           if(!confirm("ARE YOU SURE YOU WANT TO RESET YOUR PROGRESS?")){return;}
         }
         localStorage.clear();
