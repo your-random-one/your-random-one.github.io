@@ -189,7 +189,7 @@
       let happys=6;
       let curiosity=0;
       let numba=document.getElementById('numishere');
-      setInterval(()=>{happys--;},1000);
+      setInterval(()=>{happys--;if(happys=0){cutie.innerText=':('}},1000);
       setInterval(()=>{cutie.innerText=':s';setTimeout(()=>{numba.innerText=(BigInt(numba.innerText)-1n).toString();cutie.innerText=':3';},5000)},20000);
     </script>
   </body>
