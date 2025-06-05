@@ -50,7 +50,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
     <button onclick='throw new OopsieError("oopsie");'>Experience my pain making this website (use Inspect)</button>
     <h2>Data</h2>
-    <button onclick='saveGame();'>Save</button>
+    <button id='save' onclick='saveGame();'>Save</button>
     <button id='exp' onclick='exportGame();'>Export</button>
     <button id='imp' onclick="document.getElementById('inputFile').click();">Import</button>
     <button onclick='reset();' style='background-color:red;color:white;'>RESET</button>
@@ -116,7 +116,9 @@
           number:document.getElementById('numishere').innerText.toString()
         };
         localStorage.setItem("curSave",JSON.stringify(saveData));
-        alert("Saved!");
+        let save=document.getElementById('save');
+        save.innerText='Saved!'
+        setTimeout(()=>{save.innerText='Save';},2000);
       }
       function loadGame() {
         let raw=localStorage.getItem("curSave");
