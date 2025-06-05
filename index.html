@@ -180,8 +180,8 @@
         let cutie=document.getElementById('cutie');
         cutie.innerText=':D'
         clearInterval(sadTimer);
-        sadTimer=setInterval(()=>{cutie.innerText=':(';},8000);
         setTimeout(()=>{cutie.innerText=':3';},2000);
+        sadTimer=setInterval(()=>{cutie.innerText=':(';},30000);
       }
       if (!localStorage.getItem("curSave")){saveGame();}
       loadGame();
