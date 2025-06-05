@@ -110,14 +110,14 @@
         if(mischief==3) {
           cutie.innerText='>:3';
           let buttons=document.querySelectorAll('button');
-          buttons.forEach(function(b){buttons.disabled=true;});
+          buttons.forEach(function(b){b.disabled=true;});
           curiosity=-10;
           mischief=0;
           for(let i=1;i<10;i++) {
             let i1=Math.random(0,a.length-1);
             setTimeout(()=>{incn(i1,Math.random(-1,a[i1].length-1));},1000);
           }
-          buttons.forEach(function(b){buttons.disabled=false;});
+          buttons.forEach(function(b){b.disabled=false;});
         }
         if(curiosity==10) {cutie.innerText=':o';setTimeout(()=>{clicked.click();cutie.innerText=':3';},1000);mischief++;curiosity=-1;}
       }
