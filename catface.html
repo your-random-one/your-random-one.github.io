@@ -5,7 +5,7 @@
     <link rel='icon' type='image/png' href='favicon.png'>
   </head>
   <body>
-    <button onclick='saveGame();'>OwO</button>
+    <button id='OwO' onclick='saveGame();'>OwO</button>
     <h1>:3 :3 :3</h1>
     <p id='numishere'>0</p>
     <button onclick='inc();'><3</button>
@@ -51,7 +51,9 @@
           number:document.getElementById('numishere').innerText.toString()
         };
         localStorage.setItem("catface",JSON.stringify(saveData));
-        alert("UwU");
+        let OwO=document.getElementById('OwO');
+        OwO.innerText='UwU';
+        setTimeout(()=>{OwO.innerText='OwO';},2000);
       }
       function loadGame() {
         let raw=localStorage.getItem("catface");
