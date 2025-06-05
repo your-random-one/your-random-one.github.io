@@ -156,7 +156,6 @@
       function importGame() {
         let file=document.getElementById('inputFile').files[0];
         if (!file||!file.name.endsWith('.qsf')){alert("Please input a valid .qsf file.");return;}
-        alert("Refresh the page to load your import!");
         let reader=new FileReader();
         reader.onload=function (f) {
           let array=new Uint8Array(f.target.result);
@@ -164,6 +163,7 @@
         }
         try {
         reader.readAsArrayBuffer(file);
+          location.reload();
         } catch(err) {
           alert("Error; Invalid Save?");
         }
