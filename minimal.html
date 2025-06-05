@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MinimaButtons</title>
+  </head>
+  <body>
+    <button id='save' onclick='saveGame();'>Save</button>
+    <h1>MinimaButtons</h1>
+    <p id='numishere'>0</p>
+    <button onclick='inc();'>Increment Layer</button>
+    <button onclick='incn(0,-1);'>Increment</button>
+    <script>
+      let a=[[1n]];
+      let y=0;
+      function inc() {
+        let newbutton=document.createElement('button');
+        a.push([1n]);
+        y++;
+        let y2=y;
+        newbutton.innerText='Increment'+' Incrementor'.repeat(y)+'s';
+        newbutton.onclick=(()=>incn(y2,-1));
+        let newbr=document.createElement('br');
+        newbr.id=y.toString();
+        document.body.appendChild(newbr);
+        document.body.appendChild(document.createElement('br'));
+        document.body.appendChild(newbutton);
+      }
+      function incn(m,n) {
+        if (m==0&&n==-1) {
+          let numisthere=document.getElementById('numishere');
+          numisthere.innerText=BigInt(numishere.innerText)+a[0][0];
+        } else if (n==-1) {
+          for(let i=0n;i<a[m][0];i++){
+            let newbutton=document.createElement('button');
+            newbutton.innerText='Increment'+' Incrementor'.repeat(m-1)+' Incrementing'.repeat(a[m-1].length);
+            let m2=m-1;
+            let alen=a[m-1].length-1;
+            newbutton.onclick=(()=>incn(m2,alen));
+            a[m-1].push(1n);
+            document.body.insertBefore(newbutton,document.getElementById(m.toString()));
+          }
+        } else {
+          a[m][n]+=a[m][n+1];
+        }
+      }
+      function saveGame() {
+        let saveData = {
+          a:a.map(arr => arr.map(b => b.toString())),
+          y:y,
+          number:document.getElementById('numishere').innerText.toString()
+        };
+        localStorage.setItem("curSave",JSON.stringify(saveData));
+        let save=document.getElementById('save');
+        save.innerText='Saved!';
+        setTimeout(()=>{save.innerText='Save';},2000);
+      }
+      function loadGame() {
+        let raw=localStorage.getItem("curSave");
+        let saveData=JSON.parse(raw);
+        a=saveData.a.map(arr => arr.map(s => BigInt(s)));
+        y=saveData.y;
+        document.getElementById('numishere').innerText=BigInt(saveData.number);
+        for(let i=1;i<=y;i++) {
+          let y2=i;
+          let newbutton=document.createElement('button');
+        newbutton.innerText='Increment'+' Incrementor'.repeat(i)+'s';
+        newbutton.onclick=(()=>incn(y2,-1));
+        let newbr=document.createElement('br');
+        newbr.id=i.toString();
+        document.body.appendChild(newbr);
+        document.body.appendChild(document.createElement('br'));
+        document.body.appendChild(newbutton);
+          for(let j=0;j<=a[i-1].length-2;j++) {
+            let newbutton=document.createElement('button');
+            newbutton.innerText='Increment'+' Incrementor'.repeat(i-1)+' Incrementing'.repeat(j+1);
+            let x=i-1;
+            let y=j;
+            newbutton.onclick=(()=>incn(x,y));
+            document.body.insertBefore(newbutton,document.getElementById(i.toString()));
+          }
+        }
+      }
+      if (!localStorage.getItem("curSave")){saveGame();}
+      loadGame();
+    </script>
+  </body>
+</html>
