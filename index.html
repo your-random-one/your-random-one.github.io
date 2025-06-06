@@ -63,6 +63,7 @@
     <button id='imp' onclick="document.getElementById('inputFile').click();" style='background-color:blue;color:white;'>Import</button>
     <button onclick='reset();' style='background-color:red;color:white;'>RESET</button>
     <h1>Squishy Button Game</h1>
+    <h3 id='thought'>oh hi!</h3>
     <button id='cutie' onclick='hapi();'>:3</button>
     <p id='numishere'>0</p>
     <h2>Your buttons!</h2>
@@ -72,6 +73,7 @@
       let a=[[1n]];
       let y=0;
       let sound=document.getElementById('sound');
+      let thought=document.getElementById('thought');
       let cutie=document.getElementById('cutie');
       let happys=6;
       let curiosity=0;
@@ -122,6 +124,7 @@
         let clicked=event.target;
         if(mischief==10) {
           cutie.innerText='>:3';
+          thought.innerText='hehe!';
           let buttons=document.querySelectorAll('button');
           buttons.forEach(function(b){b.disabled=true;});
           curiosity=null;
@@ -129,7 +132,7 @@
             let misch=setInterval(()=>{let i1=Math.floor(Math.random()*a.length);incn(i1,Math.floor(Math.random()*(a[i1].length+1))-1);},1000);
           setTimeout(()=>{buttons.forEach(function(b){b.disabled=false;});cutie.innerText=':3';},10000);
         }
-        if(curiosity==10) {cutie.innerText=':o';setTimeout(()=>{clicked.click();cutie.innerText=':3';},1000);mischief++;curiosity=-1;}
+        if(curiosity==10) {cutie.innerText=':o';thought.innerText='ooh? wat u doing';setTimeout(()=>{clicked.click();cutie.innerText=':3';},1000);mischief++;curiosity=-1;}
       }
       function saveGame() {
         let saveData = {
@@ -204,13 +207,14 @@
       function hapi() {
         let cutie=document.getElementById('cutie');
         cutie.innerText=':D'
+        thought.innerText='feels good!';
         happys+=30;
         setTimeout(()=>{cutie.innerText=':3'},2000);
       }
       if (!localStorage.getItem("curSave")){saveGame();}
       loadGame();
-      setInterval(()=>{happys--;if(happys==0){cutie.innerText=':(';}},1000);
-      setInterval(()=>{cutie.innerText=':s';setTimeout(()=>{number.innerText=(BigInt(number.innerText)-1n).toString();cutie.innerText=':3';},5000)},20000);
+      setInterval(()=>{happys--;if(happys==0){cutie.innerText=':(';thought.innerText='im sad...';}},1000);
+      setInterval(()=>{cutie.innerText=':s';thought.innerText='im hungy.';setTimeout(()=>{number.innerText=(BigInt(number.innerText)-1n).toString();cutie.innerText=':3';thought.innerText='yum!'},5000)},20000);
     </script>
   </body>
 </html>
