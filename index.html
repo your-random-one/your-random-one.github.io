@@ -85,6 +85,8 @@
         }
       }
       function inc() {
+        sound.currentTime=0;
+        sound.play();
         let newbutton=document.createElement('button');
         a.push([1n]);
         y++;
@@ -98,11 +100,11 @@
         document.body.appendChild(newbutton);
         newbutton.offsetWidth;
         newbutton.classList.add("spawning");
-        sound.currentTime=0;
-        sound.play();
         navigator.vibrate([10,100,10,200,100]);
       }
       function incn(m,n) {
+        sound.currentTime=0;
+        sound.play();
         if (m==0&&n==-1) {
           number.innerText=BigInt(number.innerText)+a[0][0];
         } else if (n==-1) {
@@ -120,8 +122,6 @@
         } else {
           a[m][n]+=a[m][n+1];
         }
-        sound.currentTime=0;
-        sound.play();
         navigator.vibrate([m*100+25]);
         curiosity++;
         let clicked=event.target;
