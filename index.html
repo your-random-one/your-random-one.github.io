@@ -5,6 +5,7 @@
     <link rel='icon' type='image/png' href='favicon.png'>
     <title>Squishy Button Game</title>
   </head>
+  <audio id='sound' src='https://pixabay.com/sound-effects/sharp-pop-328170/' preload='auto'></audio>
   <body>
     <input type='file' id='inputFile' onchange='importGame();' style='display:none;'>
     <style>
@@ -71,6 +72,12 @@
     <script>
       let a=[[1n]];
       let y=0;
+      let sound=document.getElementById('sound');
+      let cutie=document.getElementById('cutie');
+      let happys=6;
+      let curiosity=0;
+      let mischief=0;
+      let number=document.getElementById('numishere');
       class OopsieError extends Error {
         constructor(message) {
           super(message);
@@ -91,12 +98,13 @@
         document.body.appendChild(newbutton);
         newbutton.offsetWidth;
         newbutton.classList.add("spawning");
+        sound.currentTime=0;
+        sound.play();
         navigator.vibrate([10,100,10,200,100]);
       }
       function incn(m,n) {
         if (m==0&&n==-1) {
-          let numisthere=document.getElementById('numishere');
-          numisthere.innerText=BigInt(numishere.innerText)+a[0][0];
+          number.innerText=BigInt(number.innerText)+a[0][0];
         } else if (n==-1) {
           for(let i=0n;i<a[m][0];i++){
             let newbutton=document.createElement('button');
@@ -112,6 +120,8 @@
         } else {
           a[m][n]+=a[m][n+1];
         }
+        sound.currentTime=0;
+        sound.play();
         navigator.vibrate([m*100+25]);
         curiosity++;
         let clicked=event.target;
@@ -130,7 +140,7 @@
         let saveData = {
           a:a.map(arr => arr.map(b => b.toString())),
           y:y,
-          number:document.getElementById('numishere').innerText.toString()
+          number:number.innerText.toString()
         };
         localStorage.setItem("curSave",JSON.stringify(saveData));
         let save=document.getElementById('save');
@@ -204,13 +214,8 @@
       }
       if (!localStorage.getItem("curSave")){saveGame();}
       loadGame();
-      let cutie=document.getElementById('cutie');
-      let happys=6;
-      let curiosity=0;
-      let mischief=0;
-      let numba=document.getElementById('numishere');
       setInterval(()=>{happys--;if(happys==0){cutie.innerText=':(';}},1000);
-      setInterval(()=>{cutie.innerText=':s';setTimeout(()=>{numba.innerText=(BigInt(numba.innerText)-1n).toString();cutie.innerText=':3';},5000)},20000);
+      setInterval(()=>{cutie.innerText=':s';setTimeout(()=>{number.innerText=(BigInt(number.innerText)-1n).toString();cutie.innerText=':3';},5000)},20000);
     </script>
   </body>
 </html>
