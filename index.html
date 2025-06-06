@@ -67,8 +67,8 @@
     <button id='cutie' onclick='hapi();'>:3</button>
     <p id='numishere'>0</p>
     <h2>Your buttons!</h2>
-    <button onclick='inc();'>Increment Layer</button>
-    <button onclick='incn(0,-1);'>Increment</button>
+    <button class='incer' onclick='inc();'>Increment Layer</button>
+    <button class='incer' onclick='incn(0,-1);'>Increment</button>
     <script>
       let a=[[1n]];
       let y=0;
@@ -96,6 +96,7 @@
         newbr.id=y.toString();
         document.body.appendChild(newbr);
         document.body.appendChild(document.createElement('br'));
+        newbutton.classList.add('incer');
         document.body.appendChild(newbutton);
         newbutton.offsetWidth;
         newbutton.classList.add("spawning");
@@ -112,6 +113,7 @@
             let alen=a[m-1].length-1;
             newbutton.onclick=(()=>incn(m2,alen));
             a[m-1].push(1n);
+            newbutton.classList.add('incer');
             document.body.insertBefore(newbutton,document.getElementById(m.toString()));
             newbutton.offsetWidth;
             newbutton.classList.add("spawning");
@@ -125,7 +127,7 @@
         if(mischief==10) {
           cutie.innerText='>:3';
           thought.innerText='hehe!';
-          let buttons=document.querySelectorAll('button');
+          let buttons=document.querySelectorAll('.incer');
           buttons.forEach(function(b){b.disabled=true;});
           curiosity=null;
           mischief=null;
