@@ -85,7 +85,7 @@
         }
       }
       function inc() {
-        sound.currentTime=0.1;
+        sound.currentTime=0.15;
         sound.play();
         let newbutton=document.createElement('button');
         a.push([1n]);
@@ -103,7 +103,7 @@
         navigator.vibrate([10,100,10,200,100]);
       }
       function incn(m,n) {
-        sound.currentTime=0.1;
+        sound.currentTime=0.15;
         sound.play();
         if (m==0&&n==-1) {
           number.innerText=BigInt(number.innerText)+a[0][0];
