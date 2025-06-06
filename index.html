@@ -162,6 +162,7 @@
         newbr.id=i.toString();
         document.body.appendChild(newbr);
         document.body.appendChild(document.createElement('br'));
+          newbutton.classList.add('incer');
         document.body.appendChild(newbutton);
         newbutton.offsetWidth;
         newbutton.classList.add("spawning");
@@ -171,6 +172,7 @@
             let x=i-1;
             let y=j;
             newbutton.onclick=(()=>incn(x,y));
+            newbutton.classList.add('incer');
             document.body.insertBefore(newbutton,document.getElementById(i.toString()));
             newbutton.offsetWidth;
             newbutton.classList.add("spawning");
