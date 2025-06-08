@@ -15,4 +15,4 @@ Please leave feedback!
 I would appreciate it  
 ![Favicon of the your-random-one GitHub Page](https://your-random-one.github.io/favicon.png)
 
-I am also hosting a Work In Progress [multiplayer version of MinimaButtons!](https://8a1b-2605-ef80-2c-1ee4-00-662-660.ngrok-free.app)
+I am also hosting a Work In Progress [multiplayer version of MinimaButtons!](https://3db0-2605-ef80-2a-4fc6-00-1261-af9d.ngrok-free.app)
