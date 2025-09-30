@@ -2,7 +2,7 @@
 
 Press **squishy** buttons to raise a number!
 Features:
-- Haptics
+- Haptics (may burn your hands, disable them)
 - Saving
 - Export/Import
 - Custom Error?
@@ -14,5 +14,3 @@ Other versions:
 Please leave feedback!
 I would appreciate it  
 ![Favicon of the your-random-one GitHub Page](https://your-random-one.github.io/favicon.png)
-
-I am also hosting a [multiplayer version of MinimaButtons!](https://sparrow-needed-repeatedly.ngrok-free.app)
